@@ -39,7 +39,7 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
       _nameController.text = widget.originalItem?.name ?? _nameController.text;
       _name = widget.originalItem?.name ?? "";
       _currentSliderValue = widget.originalItem?.quantity ?? _currentSliderValue;
-      _importance = widget.originalItem!.importance!;
+      _importance = widget.originalItem!.importance;
       _currentColor = widget.originalItem?.color ?? _currentColor;
       final date = widget.originalItem?.date ?? _dueDate;
       _timeOfDay = TimeOfDay(hour: date.hour, minute: date.minute);
