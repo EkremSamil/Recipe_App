@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:recipe_app/models/grocery_manager.dart';
-import 'package:recipe_app/screens/empty_grocery_screen.dart';
-import 'package:recipe_app/screens/grocery_item_screen.dart';
+import 'empty_grocery_screen.dart';
+import 'package:provider/provider.dart';
+import 'grocery_item_screen.dart';
+import 'grocery_list_screen.dart';
 
 class GroceryScreen extends StatelessWidget {
   const GroceryScreen({super.key});
@@ -22,6 +23,7 @@ class GroceryScreen extends StatelessWidget {
                   manager.addItem(item);
                   Navigator.pop(context);
                 },
+                onUpdate: (item) {},
               ),
             ),
           );
@@ -30,18 +32,16 @@ class GroceryScreen extends StatelessWidget {
       body: buildGroceryScreen(),
     );
   }
-}
 
-Widget buildGroceryScreen() {
-  return Consumer<GroceryManager>(
-    builder: (context, manager, child) {
-      if (manager.groceryItems.isNotEmpty) {
-        return Container(
-          color: Colors.red,
-        );
-      } else {
-        return const EmptyGroceryScreen();
-      }
-    },
-  );
+  Widget buildGroceryScreen() {
+    return Consumer<GroceryManager>(
+      builder: (context, manager, child) {
+        if (manager.groceryItems.isNotEmpty) {
+          return GroceryListScreen(manager: manager);
+        } else {
+          return const EmptyGroceryScreen();
+        }
+      },
+    );
+  }
 }

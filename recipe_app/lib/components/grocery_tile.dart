@@ -78,7 +78,10 @@ class GroceryTile extends StatelessWidget {
           children: [
             Text(
               item.quantity.toString(),
-              style: GoogleFonts.lato(decoration: textDecoration, fontSize: 21.0),
+              style: GoogleFonts.lato(
+                decoration: textDecoration,
+                fontSize: 21.0,
+              ),
             ),
             buildCheckBox(),
           ],

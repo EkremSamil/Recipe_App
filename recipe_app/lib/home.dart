@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   static List<Widget> pages = <Widget>[
-    const ExploreScreen(),
+    ExploreScreen(),
     RecipesScreen(),
     const GroceryScreen(),
   ];
