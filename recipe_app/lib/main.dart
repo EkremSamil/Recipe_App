@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:recipe_app/models/grocery_manager.dart';
-import 'package:recipe_app/models/profile_manager.dart';
 
 import 'fooderlich_theme.dart';
 import 'models/models.dart';
@@ -10,7 +8,7 @@ import 'navigation/app_router.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appStateManager = AppStateManager();
-  appStateManager.initializeApp();
+  await appStateManager.initializeApp();
   runApp(Fooderlich(appStateManager: appStateManager));
 }
 

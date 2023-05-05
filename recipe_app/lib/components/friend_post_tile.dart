@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/models/post.dart';
 
 import '../components/components.dart';
+import '../models/models.dart';
 
 class FriendPostTile extends StatelessWidget {
   final Post post;
@@ -29,7 +29,7 @@ class FriendPostTile extends StatelessWidget {
               Text(post.comment),
               Text(
                 '${post.timestamp} mins ago',
-                style: const TextStyle(fontWeight: FontWeight.w700),
+                style: Theme.of(context).textTheme.bodyText1,
               ),
             ],
           ),

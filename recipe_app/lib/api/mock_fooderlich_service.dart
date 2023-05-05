@@ -17,9 +17,11 @@ class MockFooderlichService {
   // Get sample explore recipes json to display in ui
   Future<List<ExploreRecipe>> _getTodayRecipes() async {
     // Simulate api request wait time
-    await Future.delayed(const Duration(milliseconds: 1000));
+    await Future.delayed(const Duration(milliseconds: 300));
     // Load json from file system
-    final dataString = await _loadAsset('assets/sample_data/sample_explore_recipes.json');
+    final dataString = await _loadAsset(
+      'assets/sample_data/sample_explore_recipes.json',
+    );
     // Decode to json
     final Map<String, dynamic> json = jsonDecode(dataString);
 
@@ -37,9 +39,11 @@ class MockFooderlichService {
 
   // Get the sample friend json posts to display in ui
   Future<List<Post>> _getFriendFeed() async {
-    await Future.delayed(const Duration(milliseconds: 1000));
+    // Simulate api request wait time
+    await Future.delayed(const Duration(milliseconds: 300));
     // Load json from file system
-    final dataString = await _loadAsset('assets/sample_data/sample_friends_feed.json');
+    final dataString =
+        await _loadAsset('assets/sample_data/sample_friends_feed.json');
     // Decode to json
     final Map<String, dynamic> json = jsonDecode(dataString);
 
@@ -58,9 +62,10 @@ class MockFooderlichService {
   // Get the sample recipe json to display in ui
   Future<List<SimpleRecipe>> getRecipes() async {
     // Simulate api request wait time
-    await Future.delayed(const Duration(milliseconds: 1000));
+    await Future.delayed(const Duration(milliseconds: 300));
     // Load json from file system
-    final dataString = await _loadAsset('assets/sample_data/sample_recipes.json');
+    final dataString =
+        await _loadAsset('assets/sample_data/sample_recipes.json');
     // Decode to json
     final Map<String, dynamic> json = jsonDecode(dataString);
 

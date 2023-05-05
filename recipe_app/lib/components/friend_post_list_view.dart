@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/components/friend_post_tile.dart';
-import 'package:recipe_app/models/post.dart';
+
+import '../components/components.dart';
+import '../models/models.dart';
 
 class FriendPostListView extends StatelessWidget {
   final List<Post> friendPosts;
@@ -21,7 +22,10 @@ class FriendPostListView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Social Chefs 👩‍🍳', style: Theme.of(context).textTheme.headline1),
+          Text(
+            'Social Chefs 👩‍🍳',
+            style: Theme.of(context).textTheme.headline1,
+          ),
           const SizedBox(height: 16),
           ListView.separated(
             primary: false,

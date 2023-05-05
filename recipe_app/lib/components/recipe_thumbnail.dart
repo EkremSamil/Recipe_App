@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/models/simple_recipe.dart';
+
+import '../models/models.dart';
 
 class RecipeThumbnail extends StatelessWidget {
   final SimpleRecipe recipe;
@@ -34,7 +35,7 @@ class RecipeThumbnail extends StatelessWidget {
           Text(
             recipe.duration,
             style: Theme.of(context).textTheme.bodyText1,
-          )
+          ),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/models/user.dart';
+
+import 'models.dart';
 
 class ProfileManager extends ChangeNotifier {
   User get getUser => User(
