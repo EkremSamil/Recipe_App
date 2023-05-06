@@ -51,20 +51,21 @@ class AppRouter {
             },
           ),
           GoRoute(
-              name: 'profile',
-              path: 'profile',
-              builder: (context, state) {
-                final tab = int.tryParse(state.params['tab'] ?? '') ?? 0;
-                return ProfileScreen(
-                    user: profileManager.getUser, currentTab: tab);
-              },
-              routes: [
-                GoRoute(
-                  name: 'rw',
-                  path: 'rw',
-                  builder: (context, state) => const WebViewScreen(),
-                ),
-              ]),
+            name: 'profile',
+            path: 'profile',
+            builder: (context, state) {
+              final tab = int.tryParse(state.params['tab'] ?? '') ?? 0;
+              // ignore: lines_longer_than_80_chars
+              return ProfileScreen(user: profileManager.getUser, currentTab: tab);
+            },
+          ),
+          // routes: [
+          //   GoRoute(
+          //     name: 'rw',
+          //     path: 'rw',
+          //     builder: (context, state) => const WebViewScreen(),
+          //   ),
+          // ]),
         ],
       ),
     ],
