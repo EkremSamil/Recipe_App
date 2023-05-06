@@ -8,11 +8,7 @@ class AppRouter {
   final ProfileManager profileManager;
   final GroceryManager groceryManager;
 
-  AppRouter(
-    this.appStateManager,
-    this.profileManager,
-    this.groceryManager,
-  );
+  AppRouter(this.appStateManager, this.profileManager, this.groceryManager);
 
   late final router = GoRouter(
     debugLogDiagnostics: true,
@@ -34,37 +30,33 @@ class AppRouter {
         path: '/:tab',
         builder: (context, state) {
           final tab = int.tryParse(state.params['tab'] ?? '') ?? 0;
-          return Home(
-            key: state.pageKey,
-            currentTab: tab,
-          );
+          return Home(key: state.pageKey, currentTab: tab);
         },
         routes: [
           GoRoute(
-              name: 'item',
-              path: 'item/:id',
-              builder: (context, state) {
-                final itemId = state.params['id'] ?? '';
-                final item = groceryManager.getGroceryItem(itemId);
-                return GroceryItemScreen(
-                  originalItem: item,
-                  onCreate: (item) {
-                    groceryManager.addItem(item);
-                  },
-                  onUpdate: (item) {
-                    groceryManager.updateItem(item);
-                  },
-                );
-              }),
+            name: 'item',
+            path: 'item/:id',
+            builder: (context, state) {
+              final itemId = state.params['id'] ?? '';
+              final item = groceryManager.getGroceryItem(itemId);
+              return GroceryItemScreen(
+                originalItem: item,
+                onCreate: (item) {
+                  groceryManager.addItem(item);
+                },
+                onUpdate: (item) {
+                  groceryManager.updateItem(item);
+                },
+              );
+            },
+          ),
           GoRoute(
               name: 'profile',
               path: 'profile',
               builder: (context, state) {
                 final tab = int.tryParse(state.params['tab'] ?? '') ?? 0;
                 return ProfileScreen(
-                  user: profileManager.getUser,
-                  currentTab: tab,
-                );
+                    user: profileManager.getUser, currentTab: tab);
               },
               routes: [
                 GoRoute(
